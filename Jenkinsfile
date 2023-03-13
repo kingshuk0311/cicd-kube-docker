@@ -6,7 +6,7 @@ tools {
 	    jdk "OracleJDK8"
 	}
     environment {
-        registry = "kmahato1103/vprofileapp"
+        registry = "kmahato1103/vprofileapp:v1"
         registryCredential = 'dockerhub'
     }
 
@@ -51,7 +51,7 @@ tools {
         stage('Building image') {
             steps{
               script {
-                dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                dockerImage = docker.build registry
               }
             }
         }
