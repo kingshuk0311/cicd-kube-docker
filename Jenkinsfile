@@ -1,11 +1,10 @@
 pipeline {
 
     agent any
-/*
-	tools {
-        maven "maven3"
-    }
-*/
+tools {
+	    maven "maven3"
+	    jdk "OracleJDK8"
+	}
     environment {
         registry = "kmahato1103/vprofileapp"
         registryCredential = 'dockerhub'
