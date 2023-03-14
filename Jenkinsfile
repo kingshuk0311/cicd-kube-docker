@@ -60,7 +60,7 @@ tools {
           steps{
             script {
               docker.withRegistry( '', registryCredential ) {
-                dockerImage.push("$BUILD_NUMBER")
+                dockerImage.push(":v$BUILD_NUMBER")
                 dockerImage.push('latest')
               }
             }
@@ -69,7 +69,7 @@ tools {
 
         stage('Remove Unused docker image') {
           steps{
-            sh "docker rmi $registry:$BUILD_NUMBER"
+            sh "docker rmi $registry:v$BUILD_NUMBER"
           }
         }
 
