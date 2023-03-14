@@ -97,7 +97,7 @@ tools {
             }
         }
         stage('Kubernetes Deploy') {
-	  agent { label 'KOPS' }
+	  agent { label 'kubernetes' }
             steps {
                     sh "helm upgrade --install --force vproifle-stack helm/vrofilecharts --set appimage=${registry}:${BUILD_NUMBER} --namespace prod2"
             }
